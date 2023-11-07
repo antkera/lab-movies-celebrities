@@ -1,0 +1,20 @@
+<h2>Movie Details</h2>
+
+<div>
+  <ul>
+    <h3>{{this.title}}</h3>
+    <p> <b>Genre:</b> {{this.genre}}
+    <br>
+     <b>Plot:</b> {{this.plot}}
+     <br>
+    {{#each this.cast}}
+     <b>Cast:</b> {{this.name}}</p>      
+      <li><b> Ocupation:</b> {{this.occupation}}</li>
+      <li><b>Catch Phrase:</b> {{this.catchPhrase}}</li>
+      
+    {{/each}}
+  </ul>
+  <form action="/movies/{{this.id}}/delete" method="post">
+  <button type="submit">Delete</button>
+  </form>
+</div>
