@@ -1,6 +1,35 @@
-<h2>Edit Movies</h2>
+<h2>Edit or delete movies</h2>
+<form action="/movies/{{this.oneMovie._id}}/edit" method="post">
 
-<div>
-  ...
-
+  <div class="form-floating mb-3">
+  <input type="text" class="form-control" name="title" value="{{this.oneMovie.title}}">
+  <label for="title">Title</label>
 </div>
+<div class="form-floating">
+  <input type="text" class="form-control" name="genre" value="{{this.oneMovie.genre}}">
+  <label for="genre">Genre</label>
+</div>
+<div class="form-floating">
+  <input type="text" class="form-control" name="plot" value="{{this.oneMovie.plot}}">
+  <label for="plot">Plot</label>
+</div>
+
+  <label >Cast</label>
+<select class="form-select" multiple aria-label="Multiple select example">
+ 
+
+{{#each this.allCelebrities}}
+<option  value="{{this._id}}">{{this.name}}</option>
+
+{{/each}}
+
+
+
+
+</select>
+<button type="submit" class="btn btn-warning">Edit</button>
+
+</form>
+<form action="/movies/{{this.oneMovie._id}}/delete" method="post">
+  <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
